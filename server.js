@@ -1,7 +1,7 @@
 const fastify = require('fastify')();
 
 // ROUTES
-fastify.register(require('./routes/users'), {prefix: 'users' });
+fastify.register(require('./routes/users'), {prefix: '/users' });
 
 fastify.listen(3000, function(err, address){
 	if(err) {
