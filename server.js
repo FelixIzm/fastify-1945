@@ -1,8 +1,13 @@
 const fastify = require('fastify')();
 const PORT = process.env.PORT || 3000;
 
+fastify.register(require('fastify-cors'), { 
+  // put your options here
+})
+
 // ROUTES
 fastify.register(require('./routes/users'), {prefix: '/users' });
+
 
 fastify.listen(PORT, '0.0.0.0', function(err, address){
 	if(err) {
