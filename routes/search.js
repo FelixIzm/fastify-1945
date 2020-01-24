@@ -164,6 +164,43 @@ async function routes (fastify, options) {
 	// GET /users/:id?search=Text
 	fastify.get('/:id', async (req,res) => {
 		if(req.params.id == 'documents'){
+
+request_01()
+    .then(request_02)
+    .then(request_03)
+    .then(callback_result)
+    .then(values => { 
+      p =[];
+      opt = JSON.parse(values['options']['form']);
+      console.log('from = '+opt['from']);
+      console.log('size = '+opt['size']);
+      var _size = 140;
+      var _from = 0;
+      for(var _from=0; _from < values['total'];_from=_from+_size){
+          opt['from']=_from;
+          opt['size']=_size;
+          values['options']['form']=JSON.stringify(opt);
+          p.push(
+            new Promise((resolve, reject) => {
+              request(values['options'], function (error, response, body) {
+                data = JSON.parse(body);
+                resolve(data['hits']['hits']);
+
+              })
+            }) 
+          );
+          //console.log(values['options']);
+      }
+      Promise.all(p).then(values => {
+		res.send(values);
+      });
+    });    
+
+
+
+
+
+/****************************
 			res.send({
 				id: req.params.id,
 				firstName: "Jhon",
@@ -171,6 +208,7 @@ async function routes (fastify, options) {
 				query: req.query,
 				params: req.params
 			});
+******************************/
 		}
 	});
 };
