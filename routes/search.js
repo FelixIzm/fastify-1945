@@ -1,4 +1,4 @@
-async function routes (fastify, options) {
+
 
 const fs = require('fs');
 var request = require('request');
@@ -160,6 +160,8 @@ function request_01() {
   });
 }
 
+
+async function routes (fastify, options) {
 
 	// GET /users/:id?search=Text
 	fastify.get('/:id', async (req,res) => {
