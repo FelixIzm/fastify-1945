@@ -192,7 +192,7 @@ async function routes (fastify, options) {
                 //console.log(values['options']);
             }
             Promise.all(p).then(values => {
-          res.send(values);
+          res.send({query:req.query});
             });
           });
               
