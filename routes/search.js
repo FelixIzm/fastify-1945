@@ -6,7 +6,7 @@ const str_00 = 'bda88568a54f922fcdfc6dbf940e5d00';
 const str_0b = '56105c9ab348522591eea18fbe4d080b';
 const str_PNSESSIONID = 'PNSESSIONID';
 var cook_00 = cook_0b = cook_PNSESSIONID = '';
-military_unit = '147 сд';
+military_unit = '147 пїЅпїЅ';
 start_date = '1945-5-1';
 finish_date = '1945-5-31';
 size_rec = 10;
@@ -65,7 +65,7 @@ function request_03(options) {
             }
             if (response) {
             /*******************************************/
-            /*******  Готовим ЧЕТВЕРТЫЙ ЗАПРОС *********/
+            /*******  пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ *********/
             /*******************************************/
             headers=parse_file('./mu_files/mu_header4.txt')
             headers['Content-Type'] = 'application/json'
@@ -76,7 +76,7 @@ function request_03(options) {
             bs = Buffer.from(bs, 'base64').toString('ascii');
             a_bs = bs.split('XXXXXX')[0];
             b_bs = bs.split('XXXXXX')[1].split('YYYYYY')[0];
-            data_t = `{"query":{"bool":{"should":[{"bool":{"should":[{"match_phrase":{"document_type":"Боевые донесения, оперсводки"}},{"match_phrase":{"document_type":"Боевые приказы и распоряжения"}},{"match_phrase":{"document_type":"Отчеты о боевых действиях"}},{"match_phrase":{"document_type":"Переговоры"}},{"match_phrase":{"document_type":"Журналы боевых действий"}},{"match_phrase":{"document_type":"Директивы и указания"}},{"match_phrase":{"document_type":"Приказы"}},{"match_phrase":{"document_type":"Постановления"}},{"match_phrase":{"document_type":"Доклады"}},{"match_phrase":{"document_type":"Рапорты"}},{"match_phrase":{"document_type":"Разведывательные бюллетени и донесения"}},{"match_phrase":{"document_type":"Сведения"}},{"match_phrase":{"document_type":"Планы"}},{"match_phrase":{"document_type":"Планы операций"}},{"match_phrase":{"document_type":"Карты"}},{"match_phrase":{"document_type":"Схемы"}},{"match_phrase":{"document_type":"Справки"}},{"match_phrase":{"document_type":"Прочие документы"}}]}},{"bool":{"should":[{"bool":{"must":[{"range":{"date_from":{"lte":"${finish_date}"}}},{"range":{"date_to":{"gte":"${start_date}"}}}],"boost":3}},{"bool":{"must":[{"range":{"document_date_b":{"lte":"${finish_date}"}}},{"range":{"document_date_f":{"gte":"${start_date}"}}}],"boost":7}}]}},{"bool":{"should":[{"match_phrase":{"authors_list.keyword":{"query":"${military_unit}","boost":50}}},{"match":{"document_name":{"query":"${military_unit}","type":"phrase","boost":30}}},{"match":{"authors":{"query":"${military_unit}","type":"phrase","boost":20}}},{"match":{"army_unit_label.division":{"query":"${military_unit}","type":"phrase","boost":10}}},{"nested":{"path":"page_magazine","query":{"bool":{"must":[{"match":{"page_magazine.podrs":{"query":"${military_unit}","type":"phrase"}}},{"range":{"page_magazine.date_from":{"lte":"${finish_date}"}}},{"range":{"page_magazine.date_to":{"gte":"${start_date}"}}}]}},"boost":4}}]}}],"minimum_should_match":3}},"_source":["id","document_type","document_number","document_date_b","document_date_f","document_name","archive","fond","opis","delo","date_from","date_to","authors","geo_names","operation_name","secr","image_path","delo_id","deal_type","operation_name"],"size":"${size_rec}","from":"${from_rec}"}`;
+            data_t = `{"query":{"bool":{"should":[{"bool":{"should":[{"match_phrase":{"document_type":"пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ"}},{"match_phrase":{"document_type":"пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ"}},{"match_phrase":{"document_type":"пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ"}},{"match_phrase":{"document_type":"пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ"}},{"match_phrase":{"document_type":"пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ"}},{"match_phrase":{"document_type":"пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ"}},{"match_phrase":{"document_type":"пїЅпїЅпїЅпїЅпїЅпїЅпїЅ"}},{"match_phrase":{"document_type":"пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ"}},{"match_phrase":{"document_type":"пїЅпїЅпїЅпїЅпїЅпїЅпїЅ"}},{"match_phrase":{"document_type":"пїЅпїЅпїЅпїЅпїЅпїЅпїЅ"}},{"match_phrase":{"document_type":"пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ"}},{"match_phrase":{"document_type":"пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ"}},{"match_phrase":{"document_type":"пїЅпїЅпїЅпїЅпїЅ"}},{"match_phrase":{"document_type":"пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ"}},{"match_phrase":{"document_type":"пїЅпїЅпїЅпїЅпїЅ"}},{"match_phrase":{"document_type":"пїЅпїЅпїЅпїЅпїЅ"}},{"match_phrase":{"document_type":"пїЅпїЅпїЅпїЅпїЅпїЅпїЅ"}},{"match_phrase":{"document_type":"пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ"}}]}},{"bool":{"should":[{"bool":{"must":[{"range":{"date_from":{"lte":"${finish_date}"}}},{"range":{"date_to":{"gte":"${start_date}"}}}],"boost":3}},{"bool":{"must":[{"range":{"document_date_b":{"lte":"${finish_date}"}}},{"range":{"document_date_f":{"gte":"${start_date}"}}}],"boost":7}}]}},{"bool":{"should":[{"match_phrase":{"authors_list.keyword":{"query":"${military_unit}","boost":50}}},{"match":{"document_name":{"query":"${military_unit}","type":"phrase","boost":30}}},{"match":{"authors":{"query":"${military_unit}","type":"phrase","boost":20}}},{"match":{"army_unit_label.division":{"query":"${military_unit}","type":"phrase","boost":10}}},{"nested":{"path":"page_magazine","query":{"bool":{"must":[{"match":{"page_magazine.podrs":{"query":"${military_unit}","type":"phrase"}}},{"range":{"page_magazine.date_from":{"lte":"${finish_date}"}}},{"range":{"page_magazine.date_to":{"gte":"${start_date}"}}}]}},"boost":4}}]}}],"minimum_should_match":3}},"_source":["id","document_type","document_number","document_date_b","document_date_f","document_name","archive","fond","opis","delo","date_from","date_to","authors","geo_names","operation_name","secr","image_path","delo_id","deal_type","operation_name"],"size":"${size_rec}","from":"${from_rec}"}`;
             options['url']='https://cdn.pamyat-naroda.ru/data/'+a_bs+'/'+b_bs+'/pamyat/document,map,magazine/_search';
             options['headers']=headers;
             options['form'] = data_t;
@@ -136,7 +136,7 @@ function request_01() {
                         _cookie[cookie.key] = cookie.value;
                     }
                     /*********************************************/
-                    /* Готовим ВТОРОЙ запрос с полученными куками*/
+                    /* пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ*/
                     /*********************************************/
                     var options = {};
                     cookies = parse_file('./mu_files/mu_cookie3.txt');
@@ -164,43 +164,39 @@ async function routes (fastify, options) {
 	// GET /users/:id?search=Text
 	fastify.get('/:id', async (req,res) => {
 		if(req.params.id == 'documents'){
+/*
+      request_01()
+          .then(request_02)
+          .then(request_03)
+          .then(callback_result)
+          .then(values => { 
+            p =[];
+            opt = JSON.parse(values['options']['form']);
+            console.log('from = '+opt['from']);
+            console.log('size = '+opt['size']);
+            var _size = 140;
+            var _from = 0;
+            for(var _from=0; _from < values['total'];_from=_from+_size){
+                opt['from']=_from;
+                opt['size']=_size;
+                values['options']['form']=JSON.stringify(opt);
+                p.push(
+                  new Promise((resolve, reject) => {
+                    request(values['options'], function (error, response, body) {
+                      data = JSON.parse(body);
+                      resolve(data['hits']['hits']);
 
-request_01()
-    .then(request_02)
-    .then(request_03)
-    .then(callback_result)
-    .then(values => { 
-      p =[];
-      opt = JSON.parse(values['options']['form']);
-      console.log('from = '+opt['from']);
-      console.log('size = '+opt['size']);
-      var _size = 140;
-      var _from = 0;
-      for(var _from=0; _from < values['total'];_from=_from+_size){
-          opt['from']=_from;
-          opt['size']=_size;
-          values['options']['form']=JSON.stringify(opt);
-          p.push(
-            new Promise((resolve, reject) => {
-              request(values['options'], function (error, response, body) {
-                data = JSON.parse(body);
-                resolve(data['hits']['hits']);
-
-              })
-            }) 
-          );
-          //console.log(values['options']);
-      }
-      Promise.all(p).then(values => {
-		res.send(values);
-      });
-    });    
-
-
-
-
-
-/****************************
+                    })
+                  }) 
+                );
+                //console.log(values['options']);
+            }
+            Promise.all(p).then(values => {
+          res.send(values);
+            });
+          });
+          */    
+/****************************/
 			res.send({
 				id: req.params.id,
 				firstName: "Jhon",
@@ -208,7 +204,7 @@ request_01()
 				query: req.query,
 				params: req.params
 			});
-******************************/
+/******************************/
 		}
 	});
 };
