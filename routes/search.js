@@ -189,7 +189,7 @@ async function routes (fastify, options) {
                     })
                   }) 
                 );
-                //console.log(values['options']);
+                console.log(p);
             }
             Promise.all(p).then(values => {
           res.send({query:values.length});
