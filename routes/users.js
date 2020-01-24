@@ -5,7 +5,9 @@ async function routes (fastify, options) {
 		res.send({
 			id: req.params.id,
 			firstName: "Jhon",
-			lastName: "Smith"
+			lastName: "Smith",
+			query: req.query,
+			params: req.params
 		});
 	});
 };
