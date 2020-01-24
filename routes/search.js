@@ -164,7 +164,7 @@ async function routes (fastify, options) {
 	// GET /users/:id?search=Text
 	fastify.get('/:id', async (req,res) => {
 		if(req.params.id == 'documents'){
-/*
+
       request_01()
           .then(request_02)
           .then(request_03)
@@ -195,8 +195,8 @@ async function routes (fastify, options) {
           res.send(values);
             });
           });
-          */    
-/****************************/
+              
+/****************************
 			res.send({
 				id: req.params.id,
 				firstName: "Jhon",
@@ -204,7 +204,7 @@ async function routes (fastify, options) {
 				query: req.query,
 				params: req.params
 			});
-/******************************/
+******************************/
 		}
 	});
 };
