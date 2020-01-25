@@ -7,6 +7,7 @@ fastify.register(require('fastify-cors'), {
 
 // ROUTES
 fastify.register(require('./routes/search'), {prefix: '/search' });
+fastify.register(require('./routes/test'), {prefix: '/test' });
 
 
 fastify.listen(PORT, '0.0.0.0', function(err, address){
