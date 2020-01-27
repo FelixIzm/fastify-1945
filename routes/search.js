@@ -152,7 +152,9 @@ function request_01() {
                     options['headers'] = headers;
                     options['cookies'] = cookies;
                     resolve(options);
-                }
+                }elese{
+	                reject({});
+		}
             }
     });
 
