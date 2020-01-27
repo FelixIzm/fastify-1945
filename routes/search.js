@@ -6,7 +6,7 @@ const str_00 = 'bda88568a54f922fcdfc6dbf940e5d00';
 const str_0b = '56105c9ab348522591eea18fbe4d080b';
 const str_PNSESSIONID = 'PNSESSIONID';
 var cook_00 = cook_0b = cook_PNSESSIONID = '';
-military_unit = '147 сд';
+military_unit = '1256 гап';
 start_date = '1945-5-1';
 finish_date = '1945-5-31';
 size_rec = 10;
