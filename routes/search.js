@@ -94,6 +94,9 @@ function request_02(options) {
     var _cookie = {};
     request(options, function (error, response, body) {
         if(error){
+					console.log('options');
+					console.log(options);
+					  console.log('error request_02 = '+error);
             reject({});
         }
         if(response){
