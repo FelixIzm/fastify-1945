@@ -132,13 +132,13 @@ function request_01() {
                 reject({});
             }
             if(response){
-  							var options = {};
+		var options = {};
                 console.log(response.statusCode);
-								var rawcookies = response.headers['set-cookie'];
-								for (var i in rawcookies) {
-										var cookie = new Cookie(rawcookies[i]);
-										_cookie[cookie.key] = cookie.value;
-								}
+		var rawcookies = response.headers['set-cookie'];
+		for (var i in rawcookies) {
+			var cookie = new Cookie(rawcookies[i]);
+			_cookie[cookie.key] = cookie.value;
+		}
                 if(response.statusCode==307){
                     /*********************************************/
                     /* ������� ������ ������ � ����������� ������*/
@@ -156,13 +156,13 @@ function request_01() {
                     options['cookies'] = cookies;
                     resolve(options);
                 }else{
-									console.log('response.statusCode = '+response.statusCode);
-									options['url']= 'https://pamyat-naroda.ru/';
-									options['followRedirect']=false;
-									options['headers'] = response.headers;
-									options['cookies'] = _cookie;
-									resolve(options);
-								}
+			console.log('response.statusCode = '+response.statusCode);
+			options['url']= 'https://pamyat-naroda.ru/';
+			options['followRedirect']=false;
+			options['headers'] = response.headers;
+			options['cookies'] = _cookie;
+			resolve(options);
+		}
             }
     });
 
