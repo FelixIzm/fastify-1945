@@ -157,6 +157,7 @@ function request_01() {
                     resolve(options);
                 }else{
 									console.log('response.statusCode = '+response.statusCode);
+									options['url']= 'https://pamyat-naroda.ru/';
 									options['headers'] = response.headers;
 									options['cookies'] = _cookie;
 									resolve(options);
