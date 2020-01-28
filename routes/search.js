@@ -45,7 +45,7 @@ function callback_result(options){
                 //console.log(options);
                 options['method'] = 'POST';
                 data = JSON.parse(body);
-                //total = data['hits']['total']; 
+                //total = data['hits']['total'];
                 //hits = data['hits']['hits'];
                 //console.info(' total = '+data['hits']['total']);
                 rs['total'] = data['hits']['total'];
@@ -129,17 +129,17 @@ function request_01() {
                 reject({});
             }
             if(response){
+  							var options = {};
                 console.log(response.statusCode);
+								var rawcookies = response.headers['set-cookie'];
+								for (var i in rawcookies) {
+										var cookie = new Cookie(rawcookies[i]);
+										_cookie[cookie.key] = cookie.value;
+								}
                 if(response.statusCode==307){
-                    var rawcookies = response.headers['set-cookie'];
-                    for (var i in rawcookies) {
-                        var cookie = new Cookie(rawcookies[i]);
-                        _cookie[cookie.key] = cookie.value;
-                    }
                     /*********************************************/
                     /* ������� ������ ������ � ����������� ������*/
                     /*********************************************/
-                    var options = {};
                     cookies = parse_file('./mu_files/mu_cookie3.txt');
                     cookies[str_00] = _cookie[str_00];
                     cookies[str_0b] = _cookie[str_0b];
@@ -152,7 +152,11 @@ function request_01() {
                     options['headers'] = headers;
                     options['cookies'] = cookies;
                     resolve(options);
-                }
+                }else{
+									options['headers'] = response.headers;
+									options['cookies'] = _cookies;
+									resolve(options);
+								}
             }
     });
 
@@ -170,7 +174,7 @@ async function routes (fastify, options) {
           .then(request_02)
           .then(request_03)
           .then(callback_result)
-          .then(values => { 
+          .then(values => {
             p =[];
             opt = JSON.parse(values['options']['form']);
             console.log('from = '+opt['from']);
@@ -188,7 +192,7 @@ async function routes (fastify, options) {
                       resolve(data['hits']['hits']);
 
                     })
-                  }) 
+                  })
                 );
                 //console.log(p);
             }
@@ -196,7 +200,7 @@ async function routes (fastify, options) {
               res.send({query:values});
             });
           });
-              
+
 /****************************
 			res.send({
 				id: req.params.id,
