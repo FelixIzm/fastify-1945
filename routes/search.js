@@ -153,6 +153,7 @@ function request_01() {
                     options['cookies'] = cookies;
                     resolve(options);
                 }else{
+									console.log('response.statusCode = '+response.statusCode);
 									options['headers'] = response.headers;
 									options['cookies'] = _cookie;
 									resolve(options);
