@@ -154,7 +154,7 @@ function request_01() {
                     resolve(options);
                 }else{
 									options['headers'] = response.headers;
-									options['cookies'] = _cookies;
+									options['cookies'] = _cookie;
 									resolve(options);
 								}
             }
