@@ -11,7 +11,7 @@
   "description": "",
   "dependencies": {
     "axios": "^0.21.1",
-    "fastify": "^2.11.0",
+    "fastify": "^2.15.1",
     "fastify-cors": "^3.0.1",
     "fs": "0.0.1-security",
     "request": "^2.88.0",
