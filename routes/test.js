@@ -4,7 +4,6 @@ async function routes (fastify, options) {
 
         res.send({
             id: req.params.id,
-            query: req.query,
             params: req.params
         });
         console.log(req.query['rdf']);
